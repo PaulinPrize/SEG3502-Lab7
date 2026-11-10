@@ -1,0 +1,32 @@
+<div class="authors-container">
+  <h2>Recherche d'un auteur</h2>
+
+  <form (ngSubmit)="searchAuthor()">
+    <div>
+      <label for="authorId">Identifiant de l'auteur :</label>
+
+      <input
+        type="number"
+        id="authorId"
+        name="authorId"
+        [(ngModel)]="authorId"
+        placeholder="Entrez l'ID de l'auteur"
+        min="1"
+        required
+      />
+    </div>
+
+    <button type="submit">Rechercher</button>
+  </form>
+
+  <div *ngIf="author">
+    <h3>Informations de l'auteur</h3>
+    <p><strong>ID :</strong> {{ author.id }}</p>
+    <p><strong>Prénom :</strong> {{ author.firstName }}</p>
+    <p><strong>Nom :</strong> {{ author.lastName }}</p>
+  </div>
+
+  <div *ngIf="errorMessage">
+    <p>{{ errorMessage }}</p>
+  </div>
+</div>
